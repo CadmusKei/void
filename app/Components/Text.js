@@ -1,9 +1,9 @@
 
 
-function Text({children})
+function Text({children, className})
 {
     return(
-        <p className=" text-primary font-courier text-xl font-bold">{children}</p>
+        <p className={`${className} text-primary font-courier text-xl font-bold`}>{children}</p>
     );
 }
 
