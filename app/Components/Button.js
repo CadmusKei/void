@@ -1,9 +1,15 @@
 
-function Button({label, id, className}){
+function Button({label, id, className, onClick}){
     return (
-        <div className="w-[80%] h-[8%]">
-            <button id={id} className={`flex items-center justify-center hover:bg-violet-700 active:bg-violet-900
-            w-full font-bold text-xl h-full bg-violet-800  text-primary rounded-md`}>{label}</button>
+        <div className="group relative w-[80%] h-[8%]">
+
+            <div className="absolute inset-0 group-hover:opacity-100 opacity-50 transition
+             bg-violet-600 blur-sm "></div>
+
+            <button onClick={onClick} id={id} className={` relative flex items-center justify-center
+            w-full font-bold text-xl h-full bg-[#202020] active:bg-[#353535] border-violet-400 border-2 
+            text-primary rounded-md text-shadow-md text-shadow-[#ffffff35]`}>{label}</button>
+            
         </div>
     );
 }

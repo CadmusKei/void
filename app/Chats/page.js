@@ -11,19 +11,18 @@ import ChatCard from "../Components/ChatCard";
 export default function Home() {
   return (
 
-    <div className="flex flex-col items-center w-full h-screen bg-[#0c0f1b]">
+    <div className="flex flex-col items-center w-full h-screen bg-[#121212]">
         <ChatNav/>
-        <div className="flex flex-col items-center bg-red-500 w-[95%] h-[85%] rounded-4xl mt-3 overflow-scroll">
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
-          <ChatCard Voidling="Cadmus"/>
+        <div className="flex flex-col items-center bg-[#232323] w-[95%] h-[80%] rounded-2xl mt-1 overflow-scroll">
+          <ChatCard Voidling="Cadmus" lastMessage="You up?"/>
+          <ChatCard Voidling="Marcie" lastMessage="Brooooo"/>
+          <ChatCard Voidling="Grump Boss" lastMessage="Did you get the email?!"/>
+          <ChatCard Voidling="Cadmus" lastMessage="You up?"/>
+          <ChatCard Voidling="Marcie" lastMessage="Brooooo"/>
+          <ChatCard Voidling="Grump Boss" lastMessage="Did you get the email?!"/>
+          <ChatCard Voidling="Cadmus" lastMessage="You up?"/>
+          <ChatCard Voidling="Marcie" lastMessage="Brooooo"/>
+          <ChatCard Voidling="Grump Boss" lastMessage="Did you get the email?!"/>
           
       
         </div>
