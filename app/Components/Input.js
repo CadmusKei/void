@@ -1,13 +1,14 @@
 
 import Text from "./Text";
 
-function Input({label})
+function Input({label, id})
 {
     return(
 
-        <div>
-            <Text label={label}></Text>
-            <input type="text" className="border-2 rounded-md border-[#cfcfcf]"/>
+        <div className="flex flex-col w-[80%] h-[10%]">
+            <Text >{label}</Text>
+            <input id={id} type="text" className="h-[90%] w-full border-2 rounded-sm border-[#cfcfcf]
+            text-primary pl-2"/>
         </div>
 
     );

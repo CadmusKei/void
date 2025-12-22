@@ -1,8 +1,8 @@
 
-function Title({children})
+function Title({children, className})
 {
     return(
-        <p className=" text-white font-courier text-3xl font-bold">{children}</p>
+        <p className={` text-[#d4d4d4] font-courier text-2xl font-bold ${className}`}>{children}</p>
     );
 }
 
