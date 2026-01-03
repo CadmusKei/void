@@ -9,7 +9,7 @@ import ChatNav from "../Components/ChatNav";
 import ChatCard from "../Components/ChatCard";
 import Echo from "../Components/Echo";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
@@ -17,9 +17,14 @@ export default function Home() {
   const [echoes, setEchoes] = useState([]); 
   const [selectedChat, setSelectedChat] = useState(null);
   const [currentMessage, setMessage] = useState("");
+  const inputRef = useRef(null);
+  const messagesEndRef = useRef(null);
 
   function sendMessage(text)
   {
+
+      if (!text) return;
+
       const newEcho = {
         id: uuidv4(),
         message: text,
@@ -28,16 +33,21 @@ export default function Home() {
       };
 
       setEchoes(prev => [...prev, newEcho]);
+
+      setMessage("");
+      inputRef.current.value = "";
+
   }
 
   useEffect(() => {
-},  [selectedChat]); 
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [echoes]);
+
 
   return (
     <div className="flex flex-col items-center w-full h-screen bg-[#121212]">
 
         { selectedChat ? (
-
           <>  
             <div className="fixed z-50 top-0 left-0 right-0 flex pl-4 space-x-8 
             items-center w-full h-[8vh] rounded-b-xl bg-[#111111c2]
@@ -48,14 +58,24 @@ export default function Home() {
             </div>
 
             {/* CHAT MESSAGES - This is the scrollable area */}
-            <div className=" flex flex-col justify-end h-[100%] overflow-y-auto pt-[6vh] pb-[12vh] w-full z-30">
+            <div className=" flex flex-col h-full overflow-y-auto pt-[10vh] pb-[12vh] w-full z-30">
               {echoes.map(echo => <Echo key={echo.id} echoData={echo}/>)}
+               <div ref={messagesEndRef} />
             </div>
 
             {/* USER INPUT FIELD*/}
             <div className="fixed bottom-0 left-0 right-0 w-full p-2 z-50 bg-[#111111c2]">
               <div className="relative flex items-center w-full h-[7vh] rounded-full bg-[#282828] overflow-hidden border-2 border-neutral-600">
-                <input id="input-field" type="text" className="w-[80vw] text-white h-full pl-5 outline-none text-xl" onChange={e => setMessage(e.target.value)}></input>
+                <input ref={inputRef} id="input-field" type="text" className="w-[80vw] text-white h-full pl-5 outline-none text-xl" 
+                onChange={e => setMessage(e.target.value)} onKeyDown={e => {
+                  if (e.key === "Enter")
+                    {
+                      e.preventDefault();
+                      if (currentMessage.trim() !== "") sendMessage(currentMessage)
+                    }          
+                }}>
+
+                </input>
                 <CircleButton designAdjustments="h-[40%] h-[40%]" image="/svgs/Send black.svg" className="absolute h-[80%] bg-[#eeeeee] right-1" onClick={() => sendMessage(currentMessage)}/>
               </div>
             </div>
