@@ -3,10 +3,11 @@ import Title from "./Title";
 
 
 export default function ChatNav() {
-  return (
 
+
+  return (
     <div className="relative flex flex-col justify-center w-full h-[16%] bg-[#121212]">
-    
+
             <Title className="pl-7 pb-2 text-3xl text-violet-400">Void.</Title>
             <div className="flex items-center bg-[#232323] h-[35%] w-[95%] mx-auto px-4 rounded-full">
               <img
@@ -20,7 +21,8 @@ export default function ChatNav() {
                   className="text-courier pt-1 w-full h-full pl-3 text-primary outline-none"
                 />
             </div>
-                  
+
+   
     </div>
       
   );
