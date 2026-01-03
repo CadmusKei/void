@@ -1,4 +1,4 @@
-`
+
 'use client'
 
 import Text from "../Components/Text";
@@ -74,4 +74,3 @@ export default function Home() {
       
   );
 }
-`
