@@ -1,4 +1,4 @@
-
+`
 'use client'
 
 import Text from "../Components/Text";
@@ -9,7 +9,6 @@ import ChatNav from "../Components/ChatNav";
 import ChatCard from "../Components/ChatCard";
 import { useState, useEffect } from "react";
 
-import backImage from "../../public/svgs/Back.svg";
 
 
 
@@ -27,10 +26,12 @@ export default function Home() {
         { selectedChat ? (
 
           <>  
-            <div className="fixed z-50 top-0 left-0 right-0 flex pl-4 space-x-5 items-center w-full h-[8vh] rounded-b-xl bg-[#111111c2]">
-              <CircleButton image={backImage} className="w-[10vw]" onClick={() => setSelectedChat(null)}/>
-              <Profile className="w-[11vw]"></Profile>
-              <Title className="text-3xl">{selectedChat}</Title>
+            <div className="fixed z-50 top-0 left-0 right-0 flex pl-4 space-x-8 
+            items-center w-full h-[8vh] rounded-b-xl bg-[#111111c2]
+            shadow-2xl shadow-[#090909]">
+              <CircleButton designAdjustments="w-[60%] h-[80%]" image={"/svgs/Back.svg"} className="h-[4vh]" onClick={() => setSelectedChat(null)}/>
+              <Profile className="h-[80%]"></Profile>
+              <Title className="text-3xl mt-1">{selectedChat}</Title>
             </div>
 
             {/* CHAT MESSAGES - This is the scrollable area */}
@@ -39,9 +40,9 @@ export default function Home() {
 
             {/* USER INPUT FIELD*/}
             <div className="fixed bottom-0 left-0 right-0 w-full p-2 z-50 bg-[#111111c2]">
-              <div className="flex items-center space-x-2 w-full h-[7vh] rounded-full bg-[#282828] overflow-hidden border-2 border-neutral-600">
+              <div className="relative flex items-center w-full h-[7vh] rounded-full bg-[#282828] overflow-hidden border-2 border-neutral-600">
                 <input id="input-field" type="text" className="w-[80vw] h-full pl-5 outline-none text-xl" ></input>
-                <CircleButton className="h-[90%]" onClick={() => sendMessage()}/>
+                <CircleButton designAdjustments="w-[60%] h-[60%]" image="/svgs/Send black.svg" className="absolute h-[80%] bg-[#eeeeee] right-1" onClick={() => sendMessage()}/>
               </div>
             </div>
           </>
@@ -73,3 +74,4 @@ export default function Home() {
       
   );
 }
+`
