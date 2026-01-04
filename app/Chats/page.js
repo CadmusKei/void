@@ -36,6 +36,7 @@ export default function Home() {
 
       setMessage("");
       inputRef.current.value = "";
+      inputRef.current.focus();
 
   }
 
@@ -50,7 +51,7 @@ export default function Home() {
         { selectedChat ? (
           <>  
             <div className="fixed z-50 top-0 left-0 right-0 flex pl-4 space-x-8 
-            items-center w-full h-[8vh] rounded-b-xl bg-[#111111c2]
+            items-center w-full h-[8vh] rounded-b-xl bg-[#111111d8]
             shadow-2xl shadow-[#090909]">
               <CircleButton designAdjustments="h-[60%]" image={"/svgs/Back.svg"} className="h-[6vh] pr-1 active:bg-[#2e2e2e]" onClick={() => setSelectedChat(null)}/>
               <Profile className="h-[80%]"></Profile>
@@ -64,8 +65,9 @@ export default function Home() {
             </div>
 
             {/* USER INPUT FIELD*/}
-            <div className="fixed bottom-0 left-0 right-0 w-full p-2 z-50 bg-[#111111c2]">
-              <div className="relative flex items-center w-full h-[7vh] rounded-full bg-[#282828] overflow-hidden border-2 border-neutral-600">
+            <div className="fixed bottom-0 left-0 right-0 w-full p-2 z-50">
+              <div className="relative flex items-center w-full h-[7vh] rounded-full bg-linear-to-br from-[#100f1a] to-[#2a053a11] 
+              overflow-hidden border-2 transition border-[#be68ff65] shadow-2xl shadow-black">
                 <input ref={inputRef} id="input-field" type="text" className="w-[80vw] text-white h-full pl-5 outline-none text-xl" 
                 onChange={e => setMessage(e.target.value)} onKeyDown={e => {
                   if (e.key === "Enter")
@@ -76,7 +78,8 @@ export default function Home() {
                 }}>
 
                 </input>
-                <CircleButton designAdjustments="h-[40%] h-[40%]" image="/svgs/Send black.svg" className="absolute h-[80%] bg-[#eeeeee] right-1" onClick={() => sendMessage(currentMessage)}/>
+                <CircleButton designAdjustments="h-[40%] h-[40%]" image="/svgs/Send Black.svg" className="absolute h-[80%] bg-linear-to-tr
+                 from-[#272b94] to-[#8f18d8] right-1" onClick={() => sendMessage(currentMessage)}/>
               </div>
             </div>
           </>
